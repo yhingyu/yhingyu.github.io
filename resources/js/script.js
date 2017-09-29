@@ -1,5 +1,5 @@
 /*jslint browser: true*/
-/*global $, document, location */
+/*global $, document, location, GMaps, google*/
 
 $(document).ready(function () {
 
@@ -105,4 +105,25 @@ $(document).ready(function () {
         nav.slideToggle(200);
     });
 
+    /* Maps */
+    var map = new GMaps({
+        div: '.map',
+        lat: 38.7436266,
+        lng: -9.05,
+        zoom: 12,
+        scaleControl: true,
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.LEFT_TOP
+        }
+    });
+
+    map.addMarker({
+        lat: 38.7436266,
+        lng: -9.1602037,
+        title: 'Lisbon',
+        infoWindow: {
+            content: '<p>Our Lisbon HQ</p>'
+        }
+    });
 });
